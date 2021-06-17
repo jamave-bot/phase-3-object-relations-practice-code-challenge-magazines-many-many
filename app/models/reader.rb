@@ -11,6 +11,7 @@ class Reader < ActiveRecord::Base
     end
 
     def cancel_subscription(magazine:)
-        Subscription.find_by(reader_id: self.id, magazine_id: magazine.id).destroy
+        # Subscription.find_by(reader_id: self.id, magazine_id: magazine.id).destroy
+        self.subscriptions.find_by(magazine_id: magazine.id).destroy
     end
 end
